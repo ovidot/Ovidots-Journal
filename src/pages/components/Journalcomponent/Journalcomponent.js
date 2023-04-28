@@ -1,10 +1,21 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const journalcomponent = () => {
+  const router = useRouter();
+
+  function handleClick() {
+    router.push("/blog");
+  }
   return (
     <>
-      <div className="card mb-3 ms-2 me-2 mt-3" style={{ maxWidth: 640 }}>
+      <div
+        className="card mb-3 ms-2 me-2 mt-3"
+        onClick={() => handleClick()}
+        style={{ maxWidth: 640 }}
+      >
         <div className="row g-0">
           <div className="col-md-4">
             <Image
@@ -16,7 +27,7 @@ const journalcomponent = () => {
             />
           </div>
           <div className="col-md-8">
-            <div className="card-body">
+            <div className="card-body" style={{ cursor: "pointer" }}>
               <h5 className="card-title">Day1</h5>
               <p className="card-text">
                 <small className="text-muted">Feb 5, 2021</small>
